@@ -1,0 +1,3 @@
+<?
+
+Carfactory::getCar('citadine');

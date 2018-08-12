@@ -1,0 +1,33 @@
+<?
+
+namespace App;
+
+/**
+ * Class Autoloader
+ * @package Tutoriel
+ */
+class Autoloader{
+
+    /**
+     * Enrigistre notre autloader
+     */
+    static function register(){
+
+        spl_autoload_register(array(__CLASS__, 'autoload'));
+    }
+
+    /**
+     * Inclue le fichier correpondant à notre class
+     * @param $class string le nom de la classe à charger
+     */
+    static function autoload($class) {
+
+        if(strpos($class, __NAMESPACE__.'\\')==0) {
+
+            $class = str_replace(__NAMESPACE__ . '\Core', '', $class);
+            $class = str_replace('\\', '/', $class);
+
+            require ROOT .'/' . $class . '.php';
+        }
+    }
+}

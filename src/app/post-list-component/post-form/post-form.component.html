@@ -1,0 +1,16 @@
+<div class="container">
+  <h2>Enregistrer un nouveau post</h2>
+  <form [formGroup]="postForm" (ngSubmit)="onSavePost()">
+    <div class="group-form">
+      <label for="title"> Titre </label>
+      <input type="text" class="form-control" id="title" formControlName="title">
+    </div>
+    <div class="group-form">
+      <label for="content"> Contenu </label>
+      <textarea id="content" rows="3" class="form-control" formControlName="content"></textarea>
+    </div>
+    <div class="group-form">
+      <button class="btn btn-success" type="submit" [disabled]="postForm.invalid"> Enregister</button>
+    </div>
+  </form>
+</div>
